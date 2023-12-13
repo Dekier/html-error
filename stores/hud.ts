@@ -6,6 +6,9 @@ interface State {
   lightX: number;
   lightY: number;
   lightZ: number;
+  isActiveOutline: boolean;
+  colorOutline: string;
+  isActiveGamepad: boolean;
 }
 export const useHudStore = defineStore("HudStore", {
   state: (): State => {
@@ -17,6 +20,9 @@ export const useHudStore = defineStore("HudStore", {
       lightX: -25,
       lightY: 15,
       lightZ: 30,
+      isActiveOutline: false,
+      colorOutline: "#000000",
+      isActiveGamepad: false,
     };
   },
   getters: {},
@@ -41,6 +47,15 @@ export const useHudStore = defineStore("HudStore", {
     },
     setLightZ(data: number) {
       this.lightZ = data;
+    },
+    setIsActiveOutline(data: boolean) {
+      this.isActiveOutline = data;
+    },
+    setColorOutline(data: string) {
+      this.colorOutline = data;
+    },
+    setIsActiveGamepad(data: boolean) {
+      this.isActiveGamepad = data;
     },
   },
 });

@@ -2,6 +2,7 @@
 html {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  font-family: "Londrina Outline", cursive;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -15,6 +16,7 @@ html,
 body {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 *,
@@ -30,9 +32,9 @@ input {
   appearance: none;
 }
 
-.cursor-grabbing {
-  display: none !important;
-}
-.rounded {
-  margin-top: 8px !important;
-}
+// .cursor-grabbing {
+//   display: none !important;
+// }
+// .rounded {
+//   margin-top: 8px !important;
+// }
