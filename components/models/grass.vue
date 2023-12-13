@@ -95,36 +95,6 @@ instancedMesh.customDepthMaterial = new ShaderMaterial({
   fragmentShader: grassDepthFragmentShader,
   side: DoubleSide,
 });
-// instancedMesh.customDepthMaterial = new MeshDepthMaterial({
-//   depthPacking: RGBADepthPacking,
-//   alphaTest: 0.1,
-// });
-
-// const planeMesh = new Mesh(geometry, lol);
-// planeMesh.position.set(10, 1, 10);
-// planeMesh.scale.set(10, 5, 10);
-// planeMesh.castShadow = true;
-// planeMesh.receiveShadow = true;
-// scene.value.add(planeMesh);
-
-const uniformsShadow = {
-  time: {
-    value: 0,
-  },
-  alphaMap: { value: alphaMap },
-  hexColor: {
-    value: new Vector3(
-      new Color(color.value).r,
-      new Color(color.value).g,
-      new Color(color.value).b
-    ),
-  },
-};
-// instancedMesh.customDepthMaterial = new ShaderMaterial({
-//   uniforms: uniformsShadow,
-//   vertexShader: vertexShaderShadow,
-//   fragmentShader: fragmentShaderShadow,
-// });
 
 const drawingCanvas = document.getElementById("drawing-canvas");
 const drawStartPos = new Vector2();
