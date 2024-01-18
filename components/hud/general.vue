@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 <template>
   <HudButtons />
-  <HudSettings />
+  <!-- <HudSettings />
   <HudControls />
-  <HudCenterInformation />
+  <HudCenterInformation /> -->
   <HudMenu />
 </template>

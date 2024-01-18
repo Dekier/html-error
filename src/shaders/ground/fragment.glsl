@@ -27,24 +27,26 @@ void main() {
     vDirectionalShadowCoord[0]
   );
 
-  // Adjust shadow color to be darker than hexColor
-  vec3 shadowColor = hexColor * 0.8 ;
+  // Poniżej dodano warunek logiczny do wyboru koloru światła kierunkowego
+  vec3 directionalLightColor;
+  // if (alphaValue > 0.5) {
+  //   // Jeśli alphaValue jest większe niż 0.5, użyj koloru dla hexColorRoads
+  //   directionalLightColor = directionalLights[0].color * smoothstep(0.2, 0.71, dot(vNormal, directionalLights[0].direction) * shadow);
+  // } else {
+  //   // W przeciwnym razie użyj koloru dla hexColor
+  //   directionalLightColor = directionalLights[0].color * smoothstep(0.2, 0.71, dot(vNormal, directionalLights[0].direction) * shadow);
+  // }
+  directionalLightColor = directionalLights[0].color * smoothstep(0.2, 0.71, dot(vNormal, directionalLights[0].direction) * shadow);
 
-  // directional light
-  float NdotL = dot(vNormal, directionalLights[0].direction);
-  float lightIntensity = smoothstep(0.0, 0.61, NdotL * shadow);
-  vec3 directionalLight = directionalLights[0].color * lightIntensity;
-  vec3 baseColor = hexColor * 0.7;
+  vec3 baseColor = hexColor;
 
   float existingRoughness = texture2D(roughMap, repeatedUV).r;
-    // Adjust clarity based on roughness
-  float clarity = 1.0 - existingRoughness;
   
-  vec3 finalColor = mix(hexColorRoads, hexColor, alphaValue) * (2.0 - existingRoughness) + hexColor * existingRoughness * directionalLight;
+  vec3 finalColor = mix(hexColorRoads, hexColor, alphaValue) * (2.2 - existingRoughness) + baseColor * directionalLightColor;
 
   // Dodaj teksturę (jeśli używasz roughMap do tekstury)
-  vec3 roughColor = texture2D(roughMap, repeatedUV).rgb;
-  finalColor *= roughColor;
+  // vec3 roughColor = texture2D(roughMap, repeatedUV).rgb;
+  // finalColor *= roughColor;
 
   gl_FragColor = vec4(finalColor, 1.0);
 }

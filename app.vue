@@ -1,8 +1,7 @@
+Z
 <template>
   <NuxtLayout>
-    <client-only>
-      <NuxtPage />
-    </client-only>
+    <NuxtPage />
   </NuxtLayout>
 </template>
 
@@ -17,6 +16,5 @@ body {
 #app {
   height: 100%;
   width: 100%;
-  background-color: #000;
 }
 </style>

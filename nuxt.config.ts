@@ -14,7 +14,6 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "definePiniaStore", "storeToRefs"],
       },
     ],
-    "@nuxtjs/device",
   ],
 
   css: [

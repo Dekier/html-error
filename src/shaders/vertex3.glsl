@@ -7,7 +7,6 @@ uniform vec3 uCharacterPosition;
 uniform sampler2D alphaMap;
 varying vec3 vNormal;
 varying vec3 vViewDir;
-varying vec2 cloudUV;
 
 
 float calculateDistance(vec3 vPosition, vec3 uCharacterPosition) {
@@ -46,7 +45,6 @@ void main() {
     #include <worldpos_vertex>
     #include <shadowmap_vertex>
     vUv = uv;
-    cloudUV = uv;
     float t = time * 2.;
 	
 
@@ -77,14 +75,13 @@ void main() {
 	}
 
     // vec4 modelViewPosition = modelViewMatrix * mvPosition;
-      vec4 modelPosition = modelMatrix * mvPosition;
+    vec4 modelPosition = modelMatrix * mvPosition;
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 clipPosition = projectionMatrix * viewPosition;
 
     vNormal = normalize(normalMatrix * normal);
-    
-    // cloudUV.x += time / 80.;
-    // cloudUV.y += time / 40.;
+
+   
 
     gl_Position = clipPosition;
 }
